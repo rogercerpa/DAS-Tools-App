@@ -1,4 +1,3 @@
-// src/pages/LandingPage/index.js
 import React from 'react';
 import Sidebar from '../Components/Sidebar';
 import ProjectCreation from '../Features/ProjectCreation';
@@ -12,10 +11,9 @@ const Home = () => {
       <Sidebar />
       <div className="flex flex-col w-full">
         <Routes>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/ProjectCreation" component={ProjectCreation} />
-          <Route path="/QueueStatus" component={QueueStatus} />
-          {/* Add more routes for additional features */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/ProjectCreation" element={<ProjectCreation />} />
+          <Route path="/QueueStatus" element={<QueueStatus />} />
         </Routes>
       </div>
     </div>
@@ -23,3 +21,4 @@ const Home = () => {
 };
 
 export default Home;
+
