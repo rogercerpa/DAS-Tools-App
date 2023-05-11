@@ -1,11 +1,14 @@
 import React from "react"
 import Home from "./Pages/Home"
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div >
+    <BrowserRouter>
+      <div className="App">
         <Home />
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
