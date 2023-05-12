@@ -1,14 +1,14 @@
 {
   "name": "das-tools-app",
   "version": "0.1.0",
+  "description": "All the tools in one",
+  "author": "Roger Cerpa",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.14",
-    "electron": "^24.3.0",
-    "electron-builder": "^23.6.0",
     "electron-is-dev": "^2.0.0",
     "postcss": "^8.4.23",
     "react": "^18.2.0",
@@ -18,9 +18,14 @@
     "tailwindcss": "^3.3.2",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "electron": "^16.0.4",
+    "electron-builder": "^23.6.0"
+    
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && electron-builder",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-start": "wait-on http://localhost:3000 && electron .",

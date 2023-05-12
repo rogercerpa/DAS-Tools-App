@@ -5,6 +5,13 @@ const Sidebar = () => {
   return (
     <div className="bg-gray-200 h-screen w-64 p-4">
       <NavLink
+        to="/"
+        className="block mb-4"
+        activeClassName="text-blue-500"
+      >
+        Home
+      </NavLink>
+      <NavLink
         to="/ProjectCreation"
         className="block mb-4"
         activeClassName="text-blue-500"
@@ -18,7 +25,7 @@ const Sidebar = () => {
       >
         Queue Status
       </NavLink>
-      {/* Add more navigation links for additional features */}
+      
     </div>
   );
 };
