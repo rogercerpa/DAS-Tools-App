@@ -6,6 +6,7 @@
 .pnp.js
 /dist
 /public
+TestData.json
 
 # testing
 /coverage

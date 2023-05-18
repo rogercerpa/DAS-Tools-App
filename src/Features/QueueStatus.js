@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
+
 const QueueStatus = () => {
 
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    window.Electron.invoke('get-user').then((data) => {
-      setUser(data);
+    const listener = (data) => setUser(data);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Remove all previous listeners
+      window.api.removeAllListeners('get-user-reply');
+      
+      window.api.send('get-user');
+      window.api.on('get-user-reply', listener);
     });
   }, []);
 
