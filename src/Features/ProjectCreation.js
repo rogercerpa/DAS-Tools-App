@@ -4,7 +4,7 @@ import React from 'react';
 const ProjectCreation = () => {
   return (
    
-    <div className="bg-gray-200">
+    <div className="bg-yellow-200">
   <div className="container mx-auto px-4 py-5 flex justify-between items-center">
     <h1 className="text-xl font-bold">Project Creation</h1>
     <button className="btn btn-primary">Create Project</button>

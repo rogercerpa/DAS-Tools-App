@@ -2,25 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../assets/logo.png"
-// const electron = window.require('electron');
-// const ipcRenderer  = electron.ipcRenderer;
+
 
 const Header = () => {
 
-
-  // const openFile = () => {
-  //   ipcRenderer.send('open-file-dialog');
-  // }
-  
-  // React.useEffect(() => {
-  //   ipcRenderer.on('fileData', (event, data) => {
-  //     console.log(data);  // Here is your file data
-  //   });
-  
-  //   // Clean up the event listener when the component unmounts
-  //   return () => ipcRenderer.removeAllListeners('fileData');
-  // }, []);
-  
 
   return (
     <header className="bg-blue-500 text-white p-4">
