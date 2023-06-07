@@ -1,6 +1,6 @@
 {
   "name": "das-tools-app",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "All the tools in one",
   "main": "public/electron.js",
   "author": "Roger Cerpa",
