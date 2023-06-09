@@ -1,8 +1,8 @@
 {
   "name": "das-tools-app",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "description": "All the tools in one",
-  "main": "public/electron.js",
+  "main": "electron.js",
   "author": "Roger Cerpa",
   "private": true,
   "dependencies": {
@@ -40,10 +40,11 @@
     "appId": "com.dastools.app",
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "electron.js"
     ],
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "public"
     },
     "win": {
       "target": [
@@ -54,7 +55,10 @@
       "target": [
         "dmg"
       ]
-    }
+    },
+    "extraResources": [
+      "electron.js"
+    ]
   },
   "eslintConfig": {
     "extends": [
