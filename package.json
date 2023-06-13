@@ -1,8 +1,9 @@
 {
   "name": "das-tools-app",
-  "version": "0.1.14",
+  "version": "0.1.16",
   "description": "All the tools in one",
-  "main": "electron.js",
+  "main": "public/electron.js",
+"homepage":"./",
   "author": "Roger Cerpa",
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "concurrently": "^8.2.0",
     "electron": "^16.0.4",
     "electron-builder": "^23.6.0",
     "tailwindcss": "^3.3.2",
@@ -31,20 +33,22 @@
     "electron-build": "electron-builder",
     "build": "npm run react-build && npm run electron-build",
     "test": "react-scripts test",
+    "electron-start": "electron .",
+    "electron-dev": "concurrently \"BROWSER=none npm run start\" \"wait-on http://localhost:3000 && npm run electron-start\"",
     "eject": "react-scripts eject",
-    "electron-start": "wait-on http://localhost:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
-    "tailwind": "tailwindcss build src/styles/tailwind.css -o src/styles/output.css"
+    "tailwind": "tailwindcss build src/styles/tailwind.css -o src/styles/output.css",
+    "electron-pack": "react-scripts build && electron-builder --publish never"
   },
   "build": {
     "appId": "com.dastools.app",
     "files": [
       "build/**/*",
       "node_modules/**/*",
-      "electron.js"
+      "public/electron.js"
     ],
     "directories": {
-      "buildResources": "public"
+      "buildResources": "assets"
     },
     "win": {
       "target": [
