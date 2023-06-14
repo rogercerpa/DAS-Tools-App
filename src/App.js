@@ -1,14 +1,14 @@
 import React from "react"
 import Home from "./Pages/Home"
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Home />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

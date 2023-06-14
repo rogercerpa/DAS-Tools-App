@@ -1,32 +1,63 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import {
+  ArrowPathIcon,
+  ChartPieIcon,
+  CursorArrowRaysIcon,
+  FingerPrintIcon,
+  SquaresPlusIcon,
+} from '@heroicons/react/24/outline'
+
+
+
+const solutions = [
+  { name: 'Home', description: 'landing page', href: '/', icon: ChartPieIcon },
+  { name: 'Coordination', description: 'daily work', href: '/Coordination', icon: CursorArrowRaysIcon },
+  { name: 'Project Creation', description: "triage, create project folder", href: '/ProjectCreation', icon: FingerPrintIcon },
+  { name: 'Schedule', description: 'see your day and week loading', href: 'Schedule', icon: SquaresPlusIcon },
+  // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+]
+
+const callsToAction = [
+  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
+  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+]
 
 const Sidebar = () => {
   return (
-    <div className="bg-gray-200 h-screen w-64 p-4">
-      <NavLink
-        to="/"
-        className="block mb-4 hover:bg-[#5A0] py-2 px-4 rounded"
-        activeClassName="text-blue-500"
+<div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex flex-col h-screen">
+  <div className="p-4 overflow-auto flex-grow">
+    {solutions.map((item) => (
+      <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+        <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+          <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+        </div>
+        <div>
+          <NavLink to={item.href} className="font-semibold text-gray-900">
+            {item.name}
+            <span className="absolute inset-0" />
+          </NavLink>
+          <p className="mt-1 text-gray-600">{item.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+    {callsToAction.map((item) => (
+      <a
+        key={item.name}
+        href={item.href}
+        className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
       >
-        Home
-      </NavLink>
-      <NavLink
-        to="/ProjectCreation"
-        className="block mb-4 hover:bg-[#5A0] py-2 px-4 rounded"
-        activeClassName="text-blue-500"
-      >
-        Project Creation
-      </NavLink>
-      <NavLink
-        to="/QueueStatus"
-        className="block mb-4 hover:bg-[#5A0] py-2 px-4 rounded"
-        activeClassName="text-blue-500"
-      >
-        Queue Status
-      </NavLink>
-      
-    </div>
+        <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+        {item.name}
+      </a>
+    ))}
+  </div>
+</div>
+
+
   );
 };
 

@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="flex flex-col w-full">
       <Header />
-    <div className="flex h-screen">  
+    <div className="flex">  
       <Sidebar />
       <div className="flex flex-col w-full">
         <Routes>
