@@ -5,6 +5,7 @@ import ProjectCreation from '../Features/ProjectCreation';
 import QueueStatus from '../Features/QueueStatus';
 import LandingPage from '../Pages/LandingPage';
 import { Route, Routes } from 'react-router-dom';
+import Footer from "../Components/Footer"
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
         </Routes>
       </div>
     </div>
+    <Footer/>
     </div>
   );
 };
