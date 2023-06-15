@@ -2,20 +2,19 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
-  ArrowPathIcon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
+  CalendarDaysIcon,
+  FolderPlusIcon,
+  ArrowsRightLeftIcon,
   SquaresPlusIcon,
 } from '@heroicons/react/24/outline'
 
 
 
 const solutions = [
-  { name: 'Home', description: 'landing page', href: '/', icon: ChartPieIcon },
-  { name: 'Coordination', description: 'daily work', href: '/Coordination', icon: CursorArrowRaysIcon },
-  { name: 'Project Creation', description: "triage, create project folder", href: '/ProjectCreation', icon: FingerPrintIcon },
-  { name: 'Schedule', description: 'see your day and week loading', href: 'Schedule', icon: SquaresPlusIcon },
+  // { name: 'Home', description: 'landing page', href: '/', icon: ChartPieIcon },
+  { name: 'Coordination', description: 'daily work', href: '/Coordination', icon: ArrowsRightLeftIcon },
+  { name: 'Project Creation', description: "triage, create project folder", href: '/ProjectCreation', icon: FolderPlusIcon },
+  { name: 'Schedule', description: 'see your day and week loading', href: 'Schedule', icon: CalendarDaysIcon },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 
@@ -26,8 +25,9 @@ const callsToAction = [
 
 const Sidebar = () => {
   return (
-<div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex flex-col h-screen">
+<div className="w-screen max-w-sm flex-auto overflow-hidden rounded-r-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex flex-col h-screen">
   <div className="p-4 overflow-auto flex-grow">
+    <h1 className='font-semibold text-gray-900 text-xl'>Tools</h1>
     {solutions.map((item) => (
       <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
         <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
