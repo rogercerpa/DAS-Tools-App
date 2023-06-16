@@ -1,11 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
   CalendarDaysIcon,
   FolderPlusIcon,
   ArrowsRightLeftIcon,
-  SquaresPlusIcon,
 } from '@heroicons/react/24/outline'
 
 

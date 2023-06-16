@@ -3,12 +3,10 @@ import { React, useState, Fragment } from 'react'
 import { Link } from 'react-router-dom';
 import Logo from "../assets/logo.png"
 import {
-  ArrowPathIcon,
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'

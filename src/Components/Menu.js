@@ -55,7 +55,7 @@ export default function MenuButton() {
       </MenuHandler>
       <MenuList
         {...triggers}
-        className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid"
+        className="sm:w-[12rem] md:w-[15rem] lg:w-[20rem] grid gap-3 overflow-visible"
       >
         <Card
           color="blue"
@@ -63,11 +63,12 @@ export default function MenuButton() {
           variant="gradient"
           className="col-span-3 grid h-full w-full place-items-center rounded-md"
         >
-          <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" />
+          {/* large image next to the menu list */}
+          {/* <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" /> */}
         </Card>
         <ul className="col-span-4 flex w-full flex-col gap-1">
           {menuItems.map(({ Name, description }) => (
-            <a href="#" key={Name}>
+            <Button variant="text" key={Name}>
               <MenuItem className="hover:bg-gray-400">
                 <Typography variant="h6" color="blue-gray" className="mb-1 ">
                   {Name}
@@ -80,7 +81,7 @@ export default function MenuButton() {
                   {description}
                 </Typography>
               </MenuItem>
-            </a>
+            </Button>
           ))}
         </ul>
       </MenuList>
