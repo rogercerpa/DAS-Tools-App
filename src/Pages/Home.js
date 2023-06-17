@@ -1,9 +1,9 @@
 import React from 'react';
-import Sidebar from '../Components/Sidebar';
+import Tools from "./Tools"
 import Header from '../Components/Header';
-import ProjectCreation from '../Features/ProjectCreation';
-import QueueStatus from '../Features/QueueStatus';
-import LandingPage from '../Pages/LandingPage';
+import LandingPage from './Team';
+import Dashboard from "./Dashboard"
+import Team from "./Team"
 import { Route, Routes } from 'react-router-dom';
 import Footer from "../Components/Footer"
 
@@ -12,17 +12,12 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="mb-auto">
-        <LandingPage/>
-        {/* <div className="flex">  
-          <Sidebar />
-          <div className="flex flex-col w-full">
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/ProjectCreation" element={<ProjectCreation />} />
-              <Route path="/QueueStatus" element={<QueueStatus />} />
+              <Route path="/Tools" element={<Tools />} />
+              <Route path="/Dashboard" element={<Dashboard />} />
+              <Route path="/Team" element={<Team />} />
             </Routes>
-          </div>
-        </div> */}
       </main>
       <Footer/>
     </div>
