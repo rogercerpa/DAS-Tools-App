@@ -4,10 +4,10 @@ import ProjectCreation from '../Features/ProjectCreation';
 import QueueStatus from '../Features/QueueStatus';
 import { Route, Routes } from 'react-router-dom';
 
-const Home = () => {
+const Tools = () => {
   return (
     <div className="flex flex-col min-h-screen"> 
-        <div className="flex">  
+        <div className="flex flex-row">  
           <Sidebar />
           <div className="flex flex-col w-full">
             <Routes>
@@ -24,4 +24,4 @@ const Home = () => {
 
 
 
-export default Home;
+export default Tools;

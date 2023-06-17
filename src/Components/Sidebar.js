@@ -13,7 +13,7 @@ const solutions = [
   // { name: 'Home', description: 'landing page', href: '/', icon: ChartPieIcon },
   { name: 'Coordination', description: 'daily work', href: '/Coordination', icon: ArrowsRightLeftIcon },
   { name: 'Project Creation', description: "triage, create project folder", href: '/ProjectCreation', icon: FolderPlusIcon },
-  { name: 'Schedule', description: 'see your day and week loading', href: 'Schedule', icon: CalendarDaysIcon },
+  { name: 'Schedule', description: 'see your day and week loading', href: '/Schedule', icon: CalendarDaysIcon },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 
