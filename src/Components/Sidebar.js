@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
   CalendarDaysIcon,
@@ -35,25 +35,26 @@ const Sidebar = () => {
           <item.icon className="h-6 w-6 text-gray-600 group-hover:text-sky-600" aria-hidden="true" />
         </div>
         <div>
-          <NavLink to={item.href} className="font-semibold text-gray-900">
+          <Link to={item.href} className="font-semibold text-gray-900">
             {item.name}
             <span className="absolute inset-0" />
-          </NavLink>
+          </Link>
           <p className="mt-1 text-gray-600">{item.description}</p>
         </div>
       </div>
+      
     ))}
   </div>
   <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
     {callsToAction.map((item) => (
-      <a
+      <Link
         key={item.name}
         href={item.href}
         className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
       >
         <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
         {item.name}
-      </a>
+      </Link>
     ))}
   </div>
 </div>

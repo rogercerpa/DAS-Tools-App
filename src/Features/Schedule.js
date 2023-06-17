@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-const QueueStatus = () => {
+const Schedule = () => {
 
 //   const [user, setUser] = useState(null);
 
@@ -19,7 +19,7 @@ const QueueStatus = () => {
 
   return (
     <div className="bg-blue-100 p-4">
-      <h1>Queue Status</h1>
+      <h1>Schedule</h1>
       <div>
       {/* {user ? (
         <div>
@@ -34,5 +34,5 @@ const QueueStatus = () => {
   );
 };
 
-export default QueueStatus;
+export default Schedule;
 
