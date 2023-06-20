@@ -1,9 +1,8 @@
 import React from 'react';
 import Tools from "./Tools"
 import Header from '../Components/Header';
-import LandingPage from './Team';
+import LandingPage from './LandingPage';
 import Dashboard from "./Dashboard"
-import ProjectCreation from "../Features/ProjectCreation"
 import Team from "./Team"
 import { Route, Routes } from 'react-router-dom';
 import Footer from "../Components/Footer"
@@ -15,10 +14,9 @@ const Home = () => {
       <main className="mb-auto">
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/Tools" element={<Tools />} />
+              <Route path="/Tools/*" element={<Tools />} />
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/Team" element={<Team />} />
-              {/* <Route path="/ProjectCreation" element={<ProjectCreation />} /> */}
             </Routes>
       </main>
       <Footer/>

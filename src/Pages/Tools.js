@@ -10,11 +10,10 @@ const Tools = () => {
     <div className="flex min-h-screen"> 
         <Sidebar />
         <div className="flex-grow">
-          <ProjectCreation />
           <Routes>
-            <Route path="/Coordination" element={<Coordination />} />
-            <Route path="/ProjectCreation" element={<ProjectCreation />} />
-            <Route path="/Schedule" element={<Schedule />} />
+            <Route path="Coordination" element={<Coordination />} />
+            <Route path="ProjectCreation" element={<ProjectCreation />} />
+            <Route path="Schedule" element={<Schedule />} />
           </Routes>
         </div>
     </div>
