@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 const axios = require('axios')
@@ -15,6 +15,7 @@ function createWindow() {
       contextIsolation: true, 
       enableRemoteModule: false, 
       nodeIntegration: false, 
+      devTools: true,
     },
   });
 
@@ -70,18 +71,18 @@ app.on('activate', () => {
 
 //read data from a csv file
 
-ipcMain.handle('read-csv', async (event, filePath) => {
-    const parser = fs
-        .createReadStream(filePath)
-        .pipe(parse({ delimiter: ',' }));
+// ipcMain.handle('read-csv', async (event, filePath) => {
+//     const parser = fs
+//         .createReadStream(filePath)
+//         .pipe(parse({ delimiter: ',' }));
 
-    const data = [];
-    for await (const record of parser) {
-        data.push(record);
-    }
+//     const data = [];
+//     for await (const record of parser) {
+//         data.push(record);
+//     }
 
-    return data;
-});
+//     return data;
+// });
 
 
 
