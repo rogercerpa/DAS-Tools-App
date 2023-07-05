@@ -1,6 +1,6 @@
 {
   "name": "das-tools-app",
-  "version": "0.1.28",
+  "version": "0.1.3",
   "description": "All the tools in one",
   "main": "public/electron.js",
   "homepage": "./",
