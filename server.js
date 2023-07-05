@@ -4,13 +4,13 @@ const port = 3000;
 const multer = require('multer');
 const csv = require('csv-parser');
 const fs = require('fs');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Item = require('./models/item');
 
 
-// mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then(() => console.log('Connected to MongoDB...'))
-//     .catch(err => console.error('Could not connect to MongoDB...', err));
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB...'))
+    .catch(err => console.error('Could not connect to MongoDB...', err));
 
 
 // Configure Multer to store files in the 'uploads' directory
