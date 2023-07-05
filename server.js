@@ -6,7 +6,10 @@ const csv = require('csv-parser');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const Item = require('./models/item');
+const cors = require('cors');
 
+
+app.use(cors());
 
 mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB...'))
