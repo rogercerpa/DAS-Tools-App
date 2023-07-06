@@ -1,9 +1,44 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-const axios = require('axios')
-const fs = require('fs');
-const parse = require('csv-parse');
+
+// IPC listener
+
+const { ipcMain } = require('electron');
+
+ipcMain.on('create-folder-and-files', (event, arg) => {
+  const fs = require('fs');
+  const path = require('path');
+  const folderPath = arg.folderPath;
+  const templateFolderPath = arg.templateFolderPath;
+
+  // Check if the directory exists, if not, create it
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath);
+  }
+
+  // Read the template files
+  fs.readdir(templateFolderPath, (err, files) => {
+    if (err) event.reply('folder-files-response', { success: false, error: err });
+
+    // For each file in the templates, create a copy in the new folder
+    files.forEach(file => {
+      const currentFilePath = path.join(templateFolderPath, file);
+      const newFilePath = path.join(folderPath, file);
+
+      // Copy file to new location
+      fs.copyFile(currentFilePath, newFilePath, (err) => {
+        if (err) event.reply('folder-files-response', { success: false, error: err });
+        console.log(`${file} was copied to ${folderPath}`);
+      });
+    });
+
+    event.reply('folder-files-response', { success: true });
+  });
+});
+
+
+//main Electron app Set-Up
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -11,7 +46,7 @@ function createWindow() {
     height: 800,
     backgroundColor: '#FFF', 
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // the path to your preload script
+      preload: path.join(__dirname, './preload.js'), // the path to your preload script
       contextIsolation: true, 
       enableRemoteModule: false, 
       nodeIntegration: false, 
@@ -40,49 +75,7 @@ app.on('activate', () => {
   }
 });
 
-//node integration
 
-//axios http request example
-// axios.get('https://api.github.com/users/github')
-//   .then(response => console.log(response.data))
-//   .catch(error => console.error(error));
-
-// csv file handling
-
-// const fs = require('fs');
-// const Papa = require('papaparse');
-
-// fs.readFile('D:\My Drive\QueueData\WQSummary_Subscribed_GallowayJeff.csv', 'utf8', (err, data) => {
-//   if (err) {
-//     console.error('Error reading the file:', err);
-//     return;
-//   }
-
-// Papa.parse(data, {
-//   header: true,
-//   complete: (results) => {
-//     console.log('Finished parsing:', results.data);
-//   },
-//   error: (err) => {
-//     console.error('Error parsing CSV:', err);
-//   },
-// });
-// });
-
-//read data from a csv file
-
-// ipcMain.handle('read-csv', async (event, filePath) => {
-//     const parser = fs
-//         .createReadStream(filePath)
-//         .pipe(parse({ delimiter: ',' }));
-
-//     const data = [];
-//     for await (const record of parser) {
-//         data.push(record);
-//     }
-
-//     return data;
-// });
 
 
 
