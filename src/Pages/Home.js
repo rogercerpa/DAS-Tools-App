@@ -19,7 +19,7 @@ const Home = () => {
               <Route path="/Team" element={<Team />} />
             </Routes>
       </main>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

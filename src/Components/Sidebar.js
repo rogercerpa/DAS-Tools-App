@@ -1,6 +1,6 @@
 import {React, useState} from 'react';
 import { Link } from 'react-router-dom';
-import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+// import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
   CalendarDaysIcon,
   FolderPlusIcon,
@@ -17,10 +17,12 @@ const solutions = [
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 
-const callsToAction = [
-  { name: 'Watch demo', href: '/', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '/', icon: PhoneIcon },
-]
+// constants for the button on the bottom of the sidebar
+
+// const callsToAction = [
+//   { name: 'Watch demo', href: '/', icon: PlayCircleIcon },
+//   { name: 'Contact sales', href: '/', icon: PhoneIcon },
+// ]
 
 const Sidebar = () => {
 
@@ -44,7 +46,10 @@ const Sidebar = () => {
       </div>
     ))}
   </div>
-  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+
+  {/* buttons on the bottom of the side bar */}
+
+  {/* <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
     {callsToAction.map((item) => (
       <Link
         key={item.name}
@@ -55,7 +60,7 @@ const Sidebar = () => {
         {item.name}
       </Link>
     ))}
-  </div>
+  </div> */}
 </div>
 
 
