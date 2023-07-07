@@ -1,15 +1,25 @@
 import React from 'react';
-import Button from '../Components/DataImport'
-import CreateFolder from '../Components/CreateFolderButton';
+import Sidebar from '../Components/Sidebar';
+import ScheduleView from "../Features/DashboardFeatures/ScheduleView"
+import QueueStatus from '../Features/DashboardFeatures/QueueStatus';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 
 const Dashboard = () => {
+  const location = useLocation();
+
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-semibold text-black ">Dashboard</h1>
-      <p>Queue status</p>
-      <Button/>
-      <CreateFolder/>
+    <div className="flex min-h-screen"> 
+        <Sidebar />
+        
+        <div className="flex-grow">
+        <h1>DAS Team All in one info</h1>
+        {location.pathname === '/Dashboard' && <p>Select a option from the list on the left.</p>}
+          <Routes>
+            <Route path="ScheduleView" element={<ScheduleView />} />
+            <Route path="QueueStatus" element={<QueueStatus />} />
+          </Routes>
+        </div>
     </div>
   );
 };

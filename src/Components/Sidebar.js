@@ -1,6 +1,5 @@
-import {React, useState} from 'react';
+import {React} from 'react';
 import { Link } from 'react-router-dom';
-// import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
   CalendarDaysIcon,
   FolderPlusIcon,
@@ -8,21 +7,14 @@ import {
 } from '@heroicons/react/24/outline'
 
 
-
 const solutions = [
-  // { name: 'Home', description: 'landing page', href: '/', icon: ChartPieIcon },
   { name: 'Coordination', description: 'daily work', href: 'Coordination', icon: ArrowsRightLeftIcon },
   { name: 'Project Creation', description: "triage, create project folder", href: 'ProjectCreation', icon: FolderPlusIcon },
   { name: 'Schedule', description: 'see your day and week loading', href: 'Schedule', icon: CalendarDaysIcon },
-  // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+
 ]
 
-// constants for the button on the bottom of the sidebar
 
-// const callsToAction = [
-//   { name: 'Watch demo', href: '/', icon: PlayCircleIcon },
-//   { name: 'Contact sales', href: '/', icon: PhoneIcon },
-// ]
 
 const Sidebar = () => {
 
@@ -46,21 +38,6 @@ const Sidebar = () => {
       </div>
     ))}
   </div>
-
-  {/* buttons on the bottom of the side bar */}
-
-  {/* <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-    {callsToAction.map((item) => (
-      <Link
-        key={item.name}
-        to={item.href}
-        className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
-      >
-        <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-        {item.name}
-      </Link>
-    ))}
-  </div> */}
 </div>
 
 

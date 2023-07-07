@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../Components/Sidebar';
 import Coordination from "../Features/ToolsFeatures/Coordination"
 import ProjectCreation from '../Features/ToolsFeatures/ProjectCreation';
-import Schedule from '../Features/DashboardFeatures/Schedule';
+import Schedule from '../Features/DashboardFeatures/ScheduleView';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 const Tools = () => {
