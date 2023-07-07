@@ -1,4 +1,4 @@
-import ProjectCreationCard from "../Components/Cards/ProjectCreationCard";
+import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
  
 const TABS = [
   {

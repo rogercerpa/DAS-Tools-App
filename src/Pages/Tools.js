@@ -1,8 +1,8 @@
 import React from 'react';
 import Sidebar from '../Components/Sidebar';
-import Coordination from "../Features/Coordination"
-import ProjectCreation from '../Features/ProjectCreation';
-import Schedule from '../Features/Schedule';
+import Coordination from "../Features/ToolsFeatures/Coordination"
+import ProjectCreation from '../Features/ToolsFeatures/ProjectCreation';
+import Schedule from '../Features/DashboardFeatures/Schedule';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 const Tools = () => {
