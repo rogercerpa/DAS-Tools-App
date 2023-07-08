@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex min-h-screen"> 
-        <Sidebar />
+        <Sidebar currentPage="Dashboard" />
         
         <div className="flex-grow">
         <h1>DAS Team All in one info</h1>

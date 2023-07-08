@@ -10,7 +10,7 @@ const Tools = () => {
   
   return (
     <div className="flex min-h-screen"> 
-        <Sidebar />
+        <Sidebar currentPage="Tools" />
         
         <div className="flex-grow">
         <h1>DAS Productivity Tools</h1>
