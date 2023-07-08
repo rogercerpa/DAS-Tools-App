@@ -6,8 +6,11 @@ import Sidebar from "../Components/Sidebar"
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 const Team = () => {
+
   const location = useLocation();
+
   return (
+
     <div className="flex min-h-screen"> 
         <Sidebar currentPage="Team" />
         
@@ -20,6 +23,7 @@ const Team = () => {
           </Routes>
         </div>
     </div>
+    
   );
 };
 
