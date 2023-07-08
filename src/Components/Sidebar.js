@@ -22,7 +22,7 @@ const ToolsFeatures = [
   { name: 'Coordination', description: 'daily work', href: 'Coordination', icon: ArrowsRightLeftIcon },
   { name: 'Project Creation', description: "triage, create project folder", href: 'ProjectCreation', icon: FolderPlusIcon },
   { name: 'Start-up', description: 'Start-up Calculator', href: 'Startup', icon: CalendarDaysIcon },
-  { name: 'CSAT email', description: 'Monthly CSAT email', href: 'CSAT', icon: CalendarDaysIcon },
+  { name: 'CSAT email', description: 'Monthly CSAT email', href: 'CSATemail', icon: CalendarDaysIcon },
   { name: 'DAS-Bot', description: 'DAS chatbot', href: 'chatbot', icon: CalendarDaysIcon },
 
 ]
@@ -40,7 +40,7 @@ const Sidebar = ({ currentPage }) => {
 const solutions = solutionsForPage[currentPage];
 
   return (
-<div className="w-screen max-w-sm flex-auto overflow-hidden rounded-r-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex flex-col h-screen">
+<div className="w-screen max-w-sm flex-auto overflow-hidden  bg-gray-200 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex flex-col h-screen">
   <div className="p-4 overflow-auto flex-grow">
     <h1 className='font-semibold text-gray-900 text-xl'>{currentPage}</h1>
     {solutions.map((item) => (
