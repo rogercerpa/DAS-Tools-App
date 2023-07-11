@@ -8,11 +8,12 @@ const mongoose = require('mongoose');
 const Item = require('./models/item');
 const cors = require('cors');
 const path = require('path');
-
+require('dotenv').config();
+const uri = process.env.MONGODB_URI;
 
 app.use(cors());
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB...'))
     .catch(err => console.error('Could not connect to MongoDB...', err));
 

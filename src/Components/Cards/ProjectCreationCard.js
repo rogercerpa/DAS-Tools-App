@@ -23,7 +23,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
   return (
     <Card className="h-full w-full p-5">
       <CardHeader floated={false} shadow={false} className="rounded-none">
-        <div className="mb-8 flex items-center justify-between gap-8">
+        <div className="mb-8 flex items-center justify-between ">
           <div>
             <Typography variant="h5" color="blue-gray">
               Project List
@@ -51,7 +51,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
           </div>
         </div>
       </CardHeader>
-      <CardBody className="overflow-scroll px-0">
+      <CardBody className=" px-0">
         <table className="mt-4 min-w-max table-auto text-left">
           <thead>
             <tr>
