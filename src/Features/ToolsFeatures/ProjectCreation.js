@@ -1,4 +1,8 @@
 import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
+import React, { useState, useEffect } from 'react';
+const URL = process.env.URL;
+
+
  
 const TABS = [
   {
@@ -66,6 +70,20 @@ const TABLE_ROWS = [
 ];
  
 export default function ProjectCreation() {
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(URL, {
+      headers: {
+        'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => setData(data));
+    console.log(data)
+  }, []);
+
   return (
     <ProjectCreationCard
     TABS={TABS}
