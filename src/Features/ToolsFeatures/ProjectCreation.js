@@ -1,9 +1,9 @@
-import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
+// import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
 import React, { useState, useEffect } from 'react';
-const URL = process.env.URL;
-
+import { fetchData } from '../../api/fetchData';
 
  
+
 const TABS = [
   {
     label: "All",
@@ -72,23 +72,28 @@ const TABLE_ROWS = [
 export default function ProjectCreation() {
 
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(URL, {
-      headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
-      }
-    })
-    .then(response => response.json())
-    .then(data => setData(data));
-    console.log(data)
-  }, []);
+    fetchData()
+      .then(data => setData(data))
+      .catch(error => setError(error));
+  }, []); // Empty array means this effect runs once on mount
 
-  return (
-    <ProjectCreationCard
-    TABS={TABS}
-    TABLE_HEAD={TABLE_HEAD}
-    TABLE_ROWS={TABLE_ROWS}
-    />
-  );
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!data) {
+    return <div>Loading...</div>;
+  } else {
+    return <div>Data: {JSON.stringify(data)}</div>;
+  }
+
+
+  // return (
+  //   <ProjectCreationCard
+  //   TABS={TABS}
+  //   TABLE_HEAD={TABLE_HEAD}
+  //   TABLE_ROWS={TABLE_ROWS}
+  //   />
+  // );
 }
