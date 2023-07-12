@@ -5,7 +5,7 @@ import LandingPage from './LandingPage';
 import Dashboard from "./Dashboard"
 import Team from "./Team"
 import { Route, Routes } from 'react-router-dom';
-import Footer from "../Components/Footer"
+
 
 const Home = () => {
   return (
@@ -15,11 +15,11 @@ const Home = () => {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/Tools/*" element={<Tools />} />
-              <Route path="/Dashboard" element={<Dashboard />} />
-              <Route path="/Team" element={<Team />} />
+              <Route path="/Dashboard/*" element={<Dashboard />} />
+              <Route path="/Team/*" element={<Team />} />
             </Routes>
       </main>
-      {/* <Footer/> */}
+
     </div>
   );
 };
