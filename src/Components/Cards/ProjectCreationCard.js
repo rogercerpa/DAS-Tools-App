@@ -8,16 +8,15 @@ import {
   Typography,
   Button,
   CardBody,
-  Chip,
   CardFooter,
   Tabs,
   TabsHeader,
   Tab,
-  Avatar,
   IconButton,
   Tooltip,
 } from "@material-tailwind/react";
 import Menu from "../Menu"
+
 
 export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
   console.log(TABLE_ROWS)
@@ -91,9 +90,16 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
         ))}
         <td className={classes}>
           <Tooltip content="Edit User">
-            <IconButton variant="text" color="blue-gray">
-              <PencilIcon className="h-4 w-4" />
-            </IconButton>
+            
+              <button
+                    type="button"
+                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300 sm:mt-0 sm:w-auto"
+                    onClick={console.log("triage button pressed")}
+                  
+                  >
+                    Triage
+                  </button>
+            
           </Tooltip>
         </td>
       </tr>
