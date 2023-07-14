@@ -1,8 +1,8 @@
 // import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
 import React from 'react';
 import { useFetchData } from '../../api/fetchData';
-
- 
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const TABS = [
   {
@@ -74,7 +74,10 @@ export default function ProjectCreation() {
   const { data, isLoading } = useFetchData();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return  ( 
+    <Box sx={{ display: 'flex' }}>
+    <CircularProgress />
+  </Box>)
   }
 
   return (
