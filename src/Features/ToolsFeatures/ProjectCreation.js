@@ -1,6 +1,6 @@
 // import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
-import React, { useState, useEffect } from 'react';
-import { fetchData } from '../../api/fetchData';
+import React from 'react';
+import { useFetchData } from '../../api/fetchData';
 
  
 
@@ -71,22 +71,22 @@ const TABLE_ROWS = [
  
 export default function ProjectCreation() {
 
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const { data, isLoading } = useFetchData();
 
-  useEffect(() => {
-    fetchData()
-      .then(data => setData(data))
-      .catch(error => setError(error));
-  }, []); // Empty array means this effect runs once on mount
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!data) {
+  if (isLoading) {
     return <div>Loading...</div>;
-  } else {
-    return <div>Data: {JSON.stringify(data)}</div>;
   }
+
+  return (
+    <div>
+      {data.map((item, index) => (
+        <div key={index}>
+          {console.log(item)}
+        </div>
+      ))}
+    </div>
+  );
+
 
 
   // return (

@@ -1,23 +1,24 @@
-import { MongoClient } from "mongodb";
-import dotenv from 'dotenv';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-dotenv.config();
+export const useFetchData = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-const mongoClient = new MongoClient(process.env.MONGODB_URI);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/data');
+        setData(response.data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error(err);
+        setIsLoading(false);
+      }
+    };
 
-export const fetchData = async (endpoint) => {
-  try {
-    await mongoClient.connect();
+    fetchData();
+  }, []);
 
-    const collection = mongoClient.db().collection(endpoint);
-    const data = await collection.find({}).toArray();
-
-    console.log(data);
-
-    await mongoClient.close();
-
-    return data;
-  } catch (error) {
-    console.error(`Failed to fetch data: ${error}`);
-  }
+  return { data, isLoading };
 };

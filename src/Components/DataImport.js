@@ -14,7 +14,7 @@ const DataImport = () => {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('http://localhost:3000/upload', formData, {
+      const response = await axios.post('http://localhost:5000/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -28,7 +28,7 @@ const DataImport = () => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/data');
+      const response = await axios.get('http://localhost:5000/data');
       console.log(response.data);
     } catch (error) {
       console.error('Error fetching data: ', error);
