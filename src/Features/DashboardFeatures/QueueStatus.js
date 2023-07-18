@@ -8,7 +8,11 @@ const QueueStatus = () => {
     <div className="bg-blue-100 p-4">
       <h1>QueueStatus</h1>
     </div>
+    <div className='flex'>
     <div><SimpleBarChart /></div>
+    <div><SimpleBarChart /></div>
+    <div><SimpleBarChart /></div>
+    </div>
     </div>
   );
 };
