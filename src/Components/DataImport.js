@@ -46,13 +46,23 @@ const DataImport = () => {
   
 
   return (
-    <div>
-      <button onClick={handleClick} className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">Load CSV Data</button>
-      <div>
-      <input type="file" onChange={fileSelectedHandler} />
-      <button onClick={fileUploadHandler} className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">Upload CSV Data</button>
+<div className="flex flex-col items-center justify-center space-y-4">
+      {/* <button
+        onClick={handleClick}
+        className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+      >
+        Load CSV Data
+      </button> */}
+      <div className="flex items-center space-x-4">
+        <input type="file" onChange={fileSelectedHandler} className="border p-2" />
+        <button
+          onClick={fileUploadHandler}
+          className="bg-sky-400 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded"
+        >
+          Upload CSV Data
+        </button>
+      </div>
       <PopUp showPopup={showPopup} onClose={handlePopupClose} />
-    </div>
     </div>
   )
 }
