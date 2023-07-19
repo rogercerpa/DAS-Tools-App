@@ -1,6 +1,6 @@
 {
   "name": "das-tools",
-  "version": "0.1.33",
+  "version": "0.1.35",
   "description": "All the tools in one",
   "main": "public/electron.js",
   "homepage": "./",
@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.0.3",
     "@mui/material": "^5.14.0",
+    "@tailwindcss/forms": "^0.5.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
