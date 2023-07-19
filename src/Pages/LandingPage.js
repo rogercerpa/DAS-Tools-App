@@ -5,8 +5,7 @@ const Team = () => {
   return (
     <div className="p-4">
       <Hero />
-
-      {/* <DataImport/> */}
+      <DataImport/>
     </div>
   );
 };

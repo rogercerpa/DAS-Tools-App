@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // import axios
+import PopUp from "./PopUp"
+
 
 const DataImport = () => {
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const [selectedFile, setSelectedFile] = useState(null);
 
   const fileSelectedHandler = event => {
     setSelectedFile(event.target.files[0]);
+  };
+
+  const handlePopupClose = () => {
+    setShowPopup(false);
   };
 
   const fileUploadHandler = async () => {
@@ -21,6 +29,7 @@ const DataImport = () => {
       });
 
       console.log(response.data);
+      setShowPopup(true);
     } catch (error) {
       console.error('Error uploading file: ', error);
     }
@@ -42,6 +51,7 @@ const DataImport = () => {
       <div>
       <input type="file" onChange={fileSelectedHandler} />
       <button onClick={fileUploadHandler} className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">Upload CSV Data</button>
+      <PopUp showPopup={showPopup} onClose={handlePopupClose} />
     </div>
     </div>
   )
