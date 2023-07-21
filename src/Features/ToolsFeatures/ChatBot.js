@@ -1,8 +1,11 @@
 import React from 'react'
+import ChatBox from "../../Components/ChatBot/ChatBox"
 
 function ChatBot() {
   return (
-    <div>ChatBot</div>
+    <div>
+      <ChatBox />
+    </div>
   )
 }
 

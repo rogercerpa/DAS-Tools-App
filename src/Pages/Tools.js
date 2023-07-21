@@ -16,8 +16,12 @@ const Tools = () => {
         <Sidebar currentPage="Tools" />
         
         <div className="flex-grow">
-        <h1>DAS Productivity Tools</h1>
-        {location.pathname === '/Tools' && <p>Select a tool from the Tools list on the left.</p>}
+        
+        {location.pathname === '/Tools' && 
+        <div> 
+          <h1>DAS Productivity Tools</h1>
+          <p>Select a tool from the Tools list on the left.</p>
+          </div>}
           <Routes>
             <Route path="Coordination" element={<Coordination />} />
             <Route path="ProjectCreation" element={<ProjectCreation />} />
