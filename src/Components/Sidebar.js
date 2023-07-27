@@ -40,7 +40,7 @@ const Sidebar = ({ currentPage }) => {
 const solutions = solutionsForPage[currentPage];
 
   return (
-<div className="w-screen max-w-sm flex-auto overflow-hidden   text-sm leading-6 shadow-sm ring-1 ring-gray-900/5 flex flex-col h-screen">
+<div className="w-screen max-w-xs flex-auto overflow-hidden   text-xs leading-6 shadow-sm ring-1 ring-gray-900/5 flex flex-col h-screen">
   <div className="p-4 overflow-auto flex-grow">
     <h1 className='font-semibold text-gray-900 text-xl'>{currentPage}</h1>
     {solutions.map((item) => (
