@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MagnifyingGlassIcon, ChevronUpDownIcon } from "@heroicons/react/24/outline";
-import { PencilIcon } from "@heroicons/react/24/solid";
 import {
   Card,
   CardHeader,
@@ -18,8 +17,16 @@ import {
 import Menu from "../Menu"
 
 
-export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
-  console.log(TABLE_ROWS)
+
+export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTriageButtonClick }) {
+  
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleTriageButtonClick = (rowData) => {
+    // Update the state with the selected project data
+    onTriageButtonClick(rowData);
+  };
+
   return (
     <Card className="h-full w-full p-5">
       <CardHeader floated={false} shadow={false} className="rounded-none">
@@ -40,7 +47,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
           <Tabs value="all" className="w-full md:w-max">
             <TabsHeader>
               {TABS.map(({ label, value }) => (
-                <Tab key={value} value={value}>
+                <Tab key={value} value={value} className='bg-transparent'>
                   &nbsp;&nbsp;{label}&nbsp;&nbsp;
                 </Tab>
               ))}
@@ -94,7 +101,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
               <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300 sm:mt-0 sm:w-auto"
-                    onClick={console.log("triage button pressed")}
+                    onClick={() => handleTriageButtonClick(row)}
                   
                   >
                     Triage
@@ -107,6 +114,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
   })}
 </tbody>
         </table>
+
       </CardBody>
       <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
         <Typography variant="small" color="blue-gray" className="font-normal">
@@ -121,6 +129,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS }) {
           </Button>
         </div>
       </CardFooter>
+     
     </Card>
   )
 }

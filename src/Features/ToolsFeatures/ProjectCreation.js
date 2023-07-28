@@ -1,9 +1,10 @@
 // import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard";
-import React from 'react';
+import React, { useState } from 'react';
 import { useFetchData } from '../../api/fetchData';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import ProjectCreationCard from "../../Components/Cards/ProjectCreationCard"
+import TriageProcess from '../../Components/Processes/TriageProcess';
 
 const TABS = [
   {
@@ -11,17 +12,22 @@ const TABS = [
     value: "all",
   },
   {
-    label: "Monitored",
-    value: "monitored",
+    label: "Triages",
+    value: "triages",
   },
   {
-    label: "Unmonitored",
-    value: "unmonitored",
+    label: "QC",
+    value: "controls QC",
   },
 ];
 
 export default function ProjectCreation() {
+
+
+
+  const [showTriageProcess, setShowTriageProcess] = useState(false); // Step 2: Create state variable
   const { data, isLoading } = useFetchData();
+  const [triageData, setTriageData] = useState(null);
 
   if (isLoading) {
     return ( 
@@ -34,11 +40,23 @@ export default function ProjectCreation() {
   const wantedKeys = ['Job Name','Assigned To', 'Due Date','Task Type', 'Status'];
   const TABLE_HEAD = wantedKeys.filter(key => key in data[0]);
 
+  const handleTriageButtonClick = (rowData) => {
+    setTriageData(rowData);
+    setShowTriageProcess(true);
+  };
+
   return (
-    <ProjectCreationCard
-      TABS={TABS}
-      TABLE_HEAD={TABLE_HEAD}
-      TABLE_ROWS={data}
-    />
+    <div>
+      {showTriageProcess ? (
+        <TriageProcess data={triageData} />
+      ) : (
+        <ProjectCreationCard
+          TABS={TABS}
+          TABLE_HEAD={TABLE_HEAD}
+          TABLE_ROWS={data}
+          onTriageButtonClick={handleTriageButtonClick} 
+        />
+      )}
+    </div>
   );
 }
