@@ -47,7 +47,7 @@ function createWindow() {
     backgroundColor: '#FFF',
     title: 'DAS Tools', 
     webPreferences: {
-      preload: path.join(__dirname, './preload.js'), // the path to your preload script
+      preload: path.join(__dirname, "preload.js"), // the path to your preload script
       contextIsolation: true, 
       enableRemoteModule: false, 
       nodeIntegration: false, 
