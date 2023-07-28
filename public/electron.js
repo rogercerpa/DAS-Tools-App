@@ -44,7 +44,8 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
-    backgroundColor: '#FFF', 
+    backgroundColor: '#FFF',
+    title: 'DAS Tools', 
     webPreferences: {
       preload: path.join(__dirname, './preload.js'), // the path to your preload script
       contextIsolation: true, 

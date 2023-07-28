@@ -68,6 +68,7 @@
   },
   "build": {
     "appId": "com.dastools.app",
+    "asar": true,
     "files": [
       "build/**/*",
       "node_modules/**/*",
