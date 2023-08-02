@@ -15,7 +15,6 @@ const Team = () => {
         <Sidebar currentPage="Team" />
         
         <div className="flex-grow">
-        <h1>Associate info/profile</h1>
         {location.pathname === '/Team' && <p>Select a option from the list on the left.</p>}
           <Routes>
             <Route path="Agencies" element={<Agencies />} />
