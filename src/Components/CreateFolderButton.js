@@ -27,7 +27,7 @@ const CreateFolder = () => {
 
   return (
     <div>
-      <button onClick={handleClick}>Create Folder</button>
+      <button className='bg-sky-400 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded' onClick={handleClick}>Create Folder</button>
     </div>
   )
 }

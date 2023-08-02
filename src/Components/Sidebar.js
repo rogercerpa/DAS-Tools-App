@@ -4,26 +4,32 @@ import {
   CalendarDaysIcon,
   FolderPlusIcon,
   ArrowsRightLeftIcon,
+  UserGroupIcon,
+  UserIcon,
+  ChartPieIcon,
+  BuildingOffice2Icon,
+  AtSymbolIcon,
+  ChatBubbleBottomCenterTextIcon
 } from '@heroicons/react/24/outline'
 
 const TeamFeatures = [
-  { name: 'Agencies', description: 'List of all agencies', href: 'Agencies', icon: ArrowsRightLeftIcon },
-  { name: 'AssociateProfile', description: "DAS Member Profile", href: 'AssociateProfile', icon: FolderPlusIcon },
+  { name: 'Agencies', description: 'List of all agencies', href: 'Agencies', icon: UserGroupIcon },
+  { name: 'AssociateProfile', description: "DAS Member Profile", href: 'AssociateProfile', icon: UserIcon },
 
 ]
 
 const DashboardFeatures = [
-  { name: 'QueueStatus', description: 'Queue Status & Report', href: 'QueueStatus', icon: ArrowsRightLeftIcon },
-  { name: 'ScheduleView', description: "Weekly Schedule", href: 'ScheduleView', icon: FolderPlusIcon },
+  { name: 'QueueStatus', description: 'Queue Status & Report', href: 'QueueStatus', icon: ChartPieIcon },
+  { name: 'ScheduleView', description: "Weekly Schedule", href: 'ScheduleView', icon: CalendarDaysIcon },
 
 ]
 
 const ToolsFeatures = [
   { name: 'Coordination', description: 'daily work', href: 'Coordination', icon: ArrowsRightLeftIcon },
   { name: 'Project Creation', description: "triage, create project folder", href: 'ProjectCreation', icon: FolderPlusIcon },
-  { name: 'Start-up', description: 'Start-up Calculator', href: 'Startup', icon: CalendarDaysIcon },
-  { name: 'CSAT email', description: 'Monthly CSAT email', href: 'CSATemail', icon: CalendarDaysIcon },
-  { name: 'DAS-Bot', description: 'DAS chatbot', href: 'chatbot', icon: CalendarDaysIcon },
+  { name: 'Start-up', description: 'Start-up Calculator', href: 'Startup', icon: BuildingOffice2Icon },
+  { name: 'CSAT email', description: 'Monthly CSAT email', href: 'CSATemail', icon: AtSymbolIcon },
+  { name: 'DAS-Bot', description: 'DAS chatbot', href: 'chatbot', icon: ChatBubbleBottomCenterTextIcon },
 
 ]
 
