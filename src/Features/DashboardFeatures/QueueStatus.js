@@ -5,8 +5,8 @@ const QueueStatus = () => {
 
   return (
     <div>
-    <div className="bg-blue-100 p-4">
-      <h1>QueueStatus</h1>
+    <div className="p-4">
+      <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">QueueStatus</h1>
     </div>
     <div className='flex'>
     <div><SimpleBarChart /></div>

@@ -15,7 +15,20 @@ const Team = () => {
         <Sidebar currentPage="Team" />
         
         <div className="flex-grow">
-        {location.pathname === '/Team' && <p>Select a option from the list on the left.</p>}
+        {location.pathname === '/Team' && 
+                <div className="relative  lg:px-2">
+                <div className="mx-auto max-w-2xl  sm:py-48 lg:py-56">
+                  <div className="text-center">
+                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                    Team news and information
+                    </h1>
+                    <p className="mt-6 text-lg leading-8 text-gray-600">
+                    To begin, select an option from the side panel. 
+                    </p>
+                  </div>
+                </div>
+        
+              </div>}
           <Routes>
             <Route path="Agencies" element={<Agencies />} />
             <Route path="AssociateProfile" element={<AssociateProfile />} />

@@ -29,7 +29,6 @@ const Tools = () => {
             </p>
           </div>
         </div>
-
       </div>}
           <Routes>
             <Route path="Coordination" element={<Coordination />} />
