@@ -18,10 +18,19 @@ const Tools = () => {
         <div className="flex-grow">
         
         {location.pathname === '/Tools' && 
-        <div> 
-          <h1>DAS Productivity Tools</h1>
-          <p>Select a tool from the Tools list on the left.</p>
-          </div>}
+        <div className="relative  lg:px-2">
+        <div className="mx-auto max-w-2xl  sm:py-48 lg:py-56">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            DAS Productivity Tools
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+            To begin, select a tool from the side panel. 
+            </p>
+          </div>
+        </div>
+
+      </div>}
           <Routes>
             <Route path="Coordination" element={<Coordination />} />
             <Route path="ProjectCreation" element={<ProjectCreation />} />
