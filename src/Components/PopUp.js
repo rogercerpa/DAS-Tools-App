@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PopUp({showPopup, onClose}) {
+function PopUp({showPopup, onClose, titleText, subTitleText}) {
 
   return (
     <>
@@ -44,10 +44,10 @@ function PopUp({showPopup, onClose}) {
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                      File Uploaded
+                      {titleText}
                     </h3>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">The file has been uploaded successfully.</p>
+                      <p className="text-sm text-gray-500">{subTitleText}</p>
                     </div>
                   </div>
                 </div>

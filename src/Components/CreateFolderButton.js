@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PopUp from "./PopUp"
 
 const CreateFolder = () => {
-
+  const titleText = "Folder Creation";
+  const subTitleText = "Your folder have been successfully created"
   const [showPopup, setShowPopup] = useState(false);
 
   const handlePopupClose = () => {
@@ -30,14 +31,14 @@ const CreateFolder = () => {
 
     // Clean up the listener when the component unmounts
     return () => {
-      window.electron.ipcRenderer.removeListener('folder-files-response', handleFolderFilesResponse);
+      window.electron.ipcRenderer.removeAllListeners('folder-files-response', handleFolderFilesResponse);
     };
   }, []);
 
   return (
     <div>
       <button className='bg-sky-400 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded' onClick={handleClick}>Create Folder</button>
-      <PopUp showPopup={showPopup} onClose={handlePopupClose} />
+      <PopUp showPopup={showPopup} onClose={handlePopupClose} titleText={titleText} subTitleText={subTitleText} />
     </div>
   )
 }
