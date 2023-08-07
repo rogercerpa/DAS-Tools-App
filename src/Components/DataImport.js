@@ -8,6 +8,8 @@ const DataImport = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const [selectedFile, setSelectedFile] = useState(null);
+  const titleText = "Data Import";
+  const subTitleText = "Your Data have been successfully uploaded"
 
   const inputRef = useRef();
 
@@ -51,7 +53,7 @@ const DataImport = () => {
           Upload CSV Data
         </button>
       </div>
-      <PopUp showPopup={showPopup} onClose={handlePopupClose} />
+      <PopUp showPopup={showPopup} onClose={handlePopupClose} titleText={titleText} subTitleText={subTitleText} />
     </div>
   )
 }
