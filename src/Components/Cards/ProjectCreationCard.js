@@ -28,7 +28,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTria
   };
 
   return (
-    <Card className="h-auto w-full md:max-w-md p-5">
+    <Card className="h-auto w-full p-5">
       <CardHeader floated={false} shadow={false} className="rounded-none">
         <div className="mb-8 flex items-center justify-between ">
           <div>
