@@ -46,7 +46,7 @@ export default function ProjectCreation() {
   };
 
   return (
-    <div>
+    <div >
       {showTriageProcess ? (
         <TriageProcess data={triageData} />
       ) : (

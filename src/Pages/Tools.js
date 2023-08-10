@@ -15,7 +15,7 @@ const Tools = () => {
     <div className="flex min-h-screen"> 
         <Sidebar currentPage="Tools" />
         
-        <div className="flex-grow">
+        <div className="">
         
         {location.pathname === '/Tools' && 
         <div className="relative  lg:px-2">
