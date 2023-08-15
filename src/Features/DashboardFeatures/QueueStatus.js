@@ -22,7 +22,7 @@ const QueueStatus = () => {
   return (
     <div className="p-4">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">QueueStatus</h1>
-      <div className='flex items-center ml-4'>
+      <div className='flex items-center ml-4 m-2'>
         <TaskStat title="Total Tasks in Queue" quantity={totalQuantity} />
         <TaskStat title="Total Tasks WOR" quantity={totalWaitingOnRep} />
         <TaskStat title="RD Today or Before" quantity={totalRequestedDate} />
