@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PopUp from "./PopUp"
+import PopUp from "../PopUp"
 
 const CreateFolder = () => {
   const titleText = "Folder Creation";
