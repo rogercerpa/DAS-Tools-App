@@ -10,6 +10,7 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 const uri = process.env.MONGODB_URI;
+const Associates = require('./models/associates')
 
 app.use(cors());
 
@@ -17,7 +18,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB...'))
     .catch(err => console.error('Could not connect to MongoDB...', err));
 
-const storage = multer.memoryStorage(); // Store files in memory
+
 const upload = multer({ dest: 'uploads/' });
 
 app.post('/upload', upload.single('file'), async (req, res) => {
@@ -56,6 +57,11 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 app.get('/data', async (req, res) => {
   const items = await Item.find();
   res.json(items);
+});
+
+app.get('/associates', async (req, res) => {
+  const associates = await Associates.find();
+  res.json(associates);
 });
 
 app.listen(port, () => {

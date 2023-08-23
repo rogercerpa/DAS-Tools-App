@@ -16,6 +16,6 @@ const itemSchema = new mongoose.Schema({
     'Subtask': String
 });
 
-const Item = mongoose.model('Item', itemSchema);
+const Item = mongoose.model('Item', itemSchema, 'QueueData');
 
 module.exports = Item;
