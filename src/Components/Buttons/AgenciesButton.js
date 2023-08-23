@@ -70,7 +70,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-  const [selected, setSelected] = useState(people[3])
+  const [selected, setSelected] = useState(people[1])
 
   return (
     <Listbox value={selected} onChange={setSelected}>
