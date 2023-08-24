@@ -6,9 +6,14 @@ import CSATemail from "../Features/ToolsFeatures/CSATemail"
 import Chatbot from "../Features/ToolsFeatures/ChatBot"
 import StartUp from "../Features/ToolsFeatures/StartUp"
 import { Route, Routes, useLocation } from 'react-router-dom';
+import DesktopMessage from '../Components/DesktopMessage';
 
 const Tools = () => {
   const location = useLocation();
+
+   // Check if the application is running in a desktop environment (Electron)
+   const isDesktopApp = window.navigator && window.navigator.userAgent.includes("Electron");
+
   
   return (
 
@@ -32,7 +37,7 @@ const Tools = () => {
       </div>}
           <Routes>
             <Route path="Coordination" element={<Coordination />} />
-            <Route path="ProjectCreation" element={<ProjectCreation />} />
+            <Route path="ProjectCreation" element={isDesktopApp ? <ProjectCreation /> : <DesktopMessage />} />
             <Route path="CSATemail" element={<CSATemail />} />
             <Route path="ChatBot" element={<Chatbot />} />
             <Route path="StartUp" element={<StartUp />} />
