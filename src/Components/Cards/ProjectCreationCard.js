@@ -19,6 +19,8 @@ import Menu from "../Menu"
 
 
 export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTriageButtonClick }) {
+
+  console.log(TABLE_ROWS)
   
   const [selectedProject, setSelectedProject] = useState(null);
 
