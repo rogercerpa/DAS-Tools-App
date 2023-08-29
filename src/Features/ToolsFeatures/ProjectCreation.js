@@ -29,8 +29,6 @@ export default function ProjectCreation() {
   const { data, isLoading } = useFetchData();
   const [triageData, setTriageData] = useState(null);
 
- 
-
   if (isLoading) {
     return ( 
       <Box sx={{ display: 'flex' }}>
@@ -39,8 +37,10 @@ export default function ProjectCreation() {
     )
   }
 
-  const wantedKeys = ['Job Name','Assigned To', 'Due Date','Task Type', 'Status'];
-  const TABLE_HEAD = wantedKeys.filter(key => key in data[0]);
+  const wantedKeys = ['Job Name','Assigned To', 'Due Date','Task Type', 'Status', "Requested Date"];
+  const TABLE_HEAD = wantedKeys.filter(key => key in data[1]);
+
+
 
   const handleTriageButtonClick = (rowData) => {
     setTriageData(rowData);

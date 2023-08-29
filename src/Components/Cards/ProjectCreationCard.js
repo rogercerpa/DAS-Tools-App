@@ -20,7 +20,7 @@ import Menu from "../Menu"
 
 export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTriageButtonClick }) {
 
-  console.log(TABLE_ROWS)
+ 
   
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -31,6 +31,7 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTria
 
   return (
     <Card className="h-auto w-full p-5">
+
       <CardHeader floated={false} shadow={false} className="rounded-none">
         <div className="mb-8 flex items-center justify-between ">
           <div>
@@ -60,7 +61,9 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTria
           </div>
         </div>
       </CardHeader>
+      
       <CardBody className=" px-0">
+
         <table className="mt-4 min-w-max table-auto text-left">
           <thead>
             <tr>
@@ -84,40 +87,39 @@ export default function ProjectCreationCard({TABS,TABLE_HEAD, TABLE_ROWS, onTria
             </tr>
           </thead>
           <tbody>
-  {TABLE_ROWS.map((row, rowIndex) => {
-    const isLast = rowIndex === TABLE_ROWS.length - 1;
-    const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+            {TABLE_ROWS.map((row, rowIndex) => {
+              console.log(row);
+              const isLast = rowIndex === TABLE_ROWS.length - 1;
+              const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
-    return (
-      <tr key={rowIndex}>
-        {TABLE_HEAD.map((key, index) => (
-          <td key={index} className={classes}>
-            <Typography variant="small" color="blue-gray" className="font-normal">
-              {row[key]}
-            </Typography>
-          </td>
-        ))}
-        <td className={classes}>
-          <Tooltip content="Edit User">
-            
-              <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300 sm:mt-0 sm:w-auto"
-                    onClick={() => handleTriageButtonClick(row)}
+              return (
+                <tr key={rowIndex}>
+                  {TABLE_HEAD.map((key, index) => (
+                    <td key={index} className={classes}>
+                      <Typography variant="small" color="blue-gray" className="font-normal">
+                        {row[key]}
+                      </Typography>
+                    </td>
+                  ))}
                   
-                  >
-                    Triage
-                  </button>
-            
-          </Tooltip>
-        </td>
-      </tr>
-    );
-  })}
-</tbody>
+                  <td className={classes}>
+                    <Tooltip content="Edit User">
+                        <button
+                              type="button"
+                              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300 sm:mt-0 sm:w-auto"
+                              onClick={() => handleTriageButtonClick(row)}>
+                              Triage
+                        </button>
+                    </Tooltip>
+                  </td>
+                </tr>
+              );
+            })}
+        </tbody>
         </table>
 
       </CardBody>
+
       <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
         <Typography variant="small" color="blue-gray" className="font-normal">
           Page 1 of 10
