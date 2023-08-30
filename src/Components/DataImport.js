@@ -6,11 +6,10 @@ import PopUp from "./PopUp"
 const DataImport = () => {
 
   const [showPopup, setShowPopup] = useState(false);
-
   const [selectedFile, setSelectedFile] = useState(null);
   const titleText = "Data Import";
   const subTitleText = "Your Data have been successfully uploaded"
-
+  const [lastUploaded, setLastUploaded] = useState(null); // 1. Create state for timestamp
   const inputRef = useRef();
 
   const fileSelectedHandler = event => {
@@ -36,6 +35,7 @@ const DataImport = () => {
       setShowPopup(true);
       inputRef.current.value = '';
       setSelectedFile(null);
+      setLastUploaded(new Date().toLocaleString()); // 2. Update timestamp on successful upload
     } catch (error) {
       console.error('Error uploading file: ', error);
     }
@@ -53,6 +53,7 @@ const DataImport = () => {
           Upload CSV Data
         </button>
       </div>
+      {lastUploaded && <p>Last data upload: {lastUploaded}</p>} {/* 3. Display timestamp */}
       <PopUp showPopup={showPopup} onClose={handlePopupClose} titleText={titleText} subTitleText={subTitleText} />
     </div>
   )
