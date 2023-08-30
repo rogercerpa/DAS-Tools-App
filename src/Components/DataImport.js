@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios'; // import axios
 import PopUp from "./PopUp"
 
@@ -9,8 +9,15 @@ const DataImport = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const titleText = "Data Import";
   const subTitleText = "Your Data have been successfully uploaded"
-  const [lastUploaded, setLastUploaded] = useState(null); // 1. Create state for timestamp
+  const [lastUploaded, setLastUploaded] = useState(localStorage.getItem('lastUploaded'));
   const inputRef = useRef();
+
+  useEffect(() => {
+    // Update LocalStorage whenever lastUploaded state changes
+    if (lastUploaded) {
+      localStorage.setItem('lastUploaded', lastUploaded);
+    }
+  }, [lastUploaded]);
 
   const fileSelectedHandler = event => {
     setSelectedFile(event.target.files[0]);
@@ -35,7 +42,7 @@ const DataImport = () => {
       setShowPopup(true);
       inputRef.current.value = '';
       setSelectedFile(null);
-      setLastUploaded(new Date().toLocaleString()); // 2. Update timestamp on successful upload
+      setLastUploaded(new Date().toLocaleString()); // Update state, which will also update LocalStorage due to the useEffect
     } catch (error) {
       console.error('Error uploading file: ', error);
     }
