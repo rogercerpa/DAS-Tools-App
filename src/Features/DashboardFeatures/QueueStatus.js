@@ -1,5 +1,7 @@
 import React from 'react';
 import { useFetchData } from '../../api/fetchData';
+import TriagesCard from "../../Components/Cards/TriagesCard"
+import QCCard from "../../Components/Cards/QCCard"
 
 const QueueStatus = () => {
   const { data } = useFetchData();
@@ -8,6 +10,8 @@ const QueueStatus = () => {
   const totalQuantity = data ? data.length : 0;
   const waitingOnRepTasks = data ? data.filter(item => item.Status === "Waiting on Rep") : [];
   const totalWaitingOnRep = waitingOnRepTasks.length;
+  const totalTriagesTasks = data ? data.filter(item => item['Task Type'] === "Controls Lead Triage") : [];
+  const totalQCTasks = data ? data.filter(item => item['Task Type'] === "Controls QC") : [];
 
   const requestedDateTasks = data
     ? data.filter(item => item['Requested Date'] <= todayDate)
@@ -28,6 +32,8 @@ const QueueStatus = () => {
         <TaskStat title="RD Today or Before" quantity={totalRequestedDate} />
         <TaskStat title="Triages Not Started" quantity={totalControlsLeadTriageNotStarted} />
       </div>
+      <div><TriagesCard totalTriagesTasks= {totalTriagesTasks}/></div>
+      <div><QCCard totalQCTasks= {totalQCTasks}/></div>
     </div>
   );
 };
