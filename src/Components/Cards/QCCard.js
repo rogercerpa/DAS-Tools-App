@@ -38,6 +38,8 @@ function QCCard({ totalQCTasks}) {
 
       <h2 className="text-xl font-bold mb-2">In Progress</h2>
       {renderTable(getStatusTasks('In Progress'))}
+      <h2 className="text-xl font-bold mb-2">Ready For QC</h2>
+      {renderTable(getStatusTasks('Ready For QC'))}
     </div>
   );
 }
