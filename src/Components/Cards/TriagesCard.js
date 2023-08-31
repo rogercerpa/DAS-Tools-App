@@ -2,30 +2,30 @@ import React from 'react';
 
 function TriagesCard({ totalTriagesTasks }) {
   const getStatusTasks = (status) => {
-    return totalTriagesTasks.filter(task => task.status === status);
+    return totalTriagesTasks.filter(task => task.Status === status);
   };
 
   const renderTable = (statusTasks) => (
+    
     <table className="min-w-full bg-white">
       <thead>
         <tr>
-          {/* Add your column headers here */}
           <th className="w-1/3 px-4 py-2">Task Name</th>
-          <th className="w-1/3 px-4 py-2">Status</th>
-          {/* Add more columns as required */}
+          <th className="w-1/3 px-4 py-2">Assigned to</th>
+          {/* You can add more columns if needed */}
         </tr>
       </thead>
       <tbody>
         {statusTasks.map(task => (
           <tr key={task.id}>
-            {/* Map your task properties to columns here */}
-            <td className="border px-4 py-2">{task.name}</td>
-            <td className="border px-4 py-2">{task.status}</td>
-            {/* Add more columns as required */}
+            <td className="border px-4 py-2">{task['Job Name']}</td>
+            <td className="border px-4 py-2">{task['Assigned To']}</td>
+            {/* You can add more columns if needed */}
           </tr>
         ))}
       </tbody>
     </table>
+    
   );
 
   return (
@@ -43,3 +43,4 @@ function TriagesCard({ totalTriagesTasks }) {
 }
 
 export default TriagesCard;
+
