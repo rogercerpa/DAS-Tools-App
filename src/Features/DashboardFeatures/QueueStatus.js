@@ -12,8 +12,8 @@ const QueueStatus = () => {
   const totalWaitingOnRep = waitingOnRepTasks.length;
   const totalTriagesTasks = data ? data.filter(item => item['Task Type'] === "Controls Lead Triage") : [];
   const totalQCTasks = data ? data.filter(item => item['Task Type'] === "Controls QC") : [];
-  const [isQCCardVisible, setIsQCCardVisible] = useState(true);
-  const [isTriageCardVisible, setIsTriageCardVisible] = useState(true);
+  const [isQCCardVisible, setIsQCCardVisible] = useState(false);
+  const [isTriageCardVisible, setIsTriageCardVisible] = useState(false);
 
     // Toggle functions for each card
     const toggleQCCard = () => {
