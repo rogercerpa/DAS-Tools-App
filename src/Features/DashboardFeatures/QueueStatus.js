@@ -43,14 +43,20 @@ const QueueStatus = () => {
         <TaskStat title="RD Today or Before" quantity={totalRequestedDate} />
         <TaskStat title="Triages Not Started" quantity={totalControlsLeadTriageNotStarted} />
       </div>
+      <div className="flex items-center m-2 gap-1">
       <div>
-        <button onClick={toggleTriageCard} className="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">Triage Status</button>
-        {isTriageCardVisible && <TriagesCard totalTriagesTasks= {totalTriagesTasks}/>}
+        <button onClick={toggleTriageCard} className="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
+          Triage Status
+        </button>
+        
       </div>
       <div>
-        <button onClick={toggleQCCard} className="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"> QC Status</button>
-        {isQCCardVisible && <QCCard totalQCTasks= {totalQCTasks}/>}
+        <button onClick={toggleQCCard} className="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"> QC Status
+        </button>
       </div>
+      </div>
+      {isTriageCardVisible && <TriagesCard totalTriagesTasks= {totalTriagesTasks}/>}
+      {isQCCardVisible && <QCCard totalQCTasks= {totalQCTasks}/>}
     </div>
   );
 };
