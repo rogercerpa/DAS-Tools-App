@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFetchData } from '../../api/fetchData';
 import TriagesCard from "../../Components/Cards/TriagesCard"
 import QCCard from "../../Components/Cards/QCCard"
@@ -12,6 +12,17 @@ const QueueStatus = () => {
   const totalWaitingOnRep = waitingOnRepTasks.length;
   const totalTriagesTasks = data ? data.filter(item => item['Task Type'] === "Controls Lead Triage") : [];
   const totalQCTasks = data ? data.filter(item => item['Task Type'] === "Controls QC") : [];
+  const [isQCCardVisible, setIsQCCardVisible] = useState(true);
+  const [isTriageCardVisible, setIsTriageCardVisible] = useState(true);
+
+    // Toggle functions for each card
+    const toggleQCCard = () => {
+      setIsQCCardVisible(prevVisibility => !prevVisibility);
+    };
+  
+    const toggleTriageCard = () => {
+      setIsTriageCardVisible(prevVisibility => !prevVisibility);
+    };
 
   const requestedDateTasks = data
     ? data.filter(item => item['Requested Date'] <= todayDate)
@@ -32,8 +43,14 @@ const QueueStatus = () => {
         <TaskStat title="RD Today or Before" quantity={totalRequestedDate} />
         <TaskStat title="Triages Not Started" quantity={totalControlsLeadTriageNotStarted} />
       </div>
-      <div><TriagesCard totalTriagesTasks= {totalTriagesTasks}/></div>
-      <div><QCCard totalQCTasks= {totalQCTasks}/></div>
+      <div>
+        <button onClick={toggleTriageCard} className="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">Triage Status</button>
+        {isTriageCardVisible && <TriagesCard totalTriagesTasks= {totalTriagesTasks}/>}
+      </div>
+      <div>
+        <button onClick={toggleQCCard} className="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"> QC Status</button>
+        {isQCCardVisible && <QCCard totalQCTasks= {totalQCTasks}/>}
+      </div>
     </div>
   );
 };
