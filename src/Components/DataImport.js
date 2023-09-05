@@ -49,9 +49,9 @@ const DataImport = () => {
   };
 
   return (
-<div className="flex flex-col items-center justify-center space-y-4">
+<div className="flex flex-col items-center justify-center space-y-2">
 
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2">
         <input ref={inputRef} type="file" onChange={fileSelectedHandler} className="bg-white border p-2 rounded" />
         <button
           onClick={fileUploadHandler}

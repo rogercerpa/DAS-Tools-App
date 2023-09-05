@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div >
       <div className="relative  lg:px-2">
-        <div className="mx-auto max-w-2xl  sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl  sm:py-48 lg:py-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Dashboard to enrich your Design Applications Services
