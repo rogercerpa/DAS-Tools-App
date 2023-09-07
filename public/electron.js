@@ -1,6 +1,9 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow,  Menu, MenuItem } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
+const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
+
+setupTitlebar();
 
 // IPC listener
 
@@ -44,9 +47,11 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
-    backgroundColor: '#FFF',
-    title: 'DAS Tools', 
+    frame: false,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: true,
     webPreferences: {
+      sandbox: false,
       preload: path.join(__dirname, "preload.js"), // the path to your preload script
       contextIsolation: true, 
       enableRemoteModule: false, 
@@ -55,11 +60,14 @@ function createWindow() {
     },
   });
 
+
   win.loadURL(
     isDev
       ? 'http://localhost:5001'
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
+
+  attachTitlebarToWindow(win);
 }
 
 app.whenReady().then(createWindow);
@@ -75,6 +83,18 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+const menu = new Menu();
+menu.append(new MenuItem({
+    label: 'File',
+    submenu: [
+        { label: 'Open' },
+        { label: 'Save' }
+        // ... other menu items
+    ]
+}));
+
+
 
 
 
