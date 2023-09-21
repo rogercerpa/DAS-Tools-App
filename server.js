@@ -11,6 +11,10 @@ const path = require('path');
 require('dotenv').config();
 const uri = process.env.MONGODB_URI;
 const Associates = require('./models/associates')
+const passport = require('passport');
+const session = require('express-session');
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
 
 app.use(cors());
 
@@ -62,6 +66,79 @@ app.get('/data', async (req, res) => {
 app.get('/associates', async (req, res) => {
   const associates = await Associates.find();
   res.json(associates);
+});
+
+//authentication setup using passport.js
+
+const UserSchema = new mongoose.Schema({
+  username: String,
+  password: String
+});
+const User = mongoose.model('User', UserSchema);
+
+// Passport Configuration
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+
+      // Check password with bcrypt
+      bcrypt.compare(password, user.password, (err, isMatch) => {
+        if (err) throw err;
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false);
+        }
+      });
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+// Middlewares
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport.js Routes
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/dashboard',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
+app.post('/register', (req, res) => {
+  const { username, password } = req.body;
+  
+  bcrypt.hash(password, 10, (err, hashedPassword) => {
+    if (err) throw err;
+
+    const newUser = new User({
+      username,
+      password: hashedPassword
+    });
+
+    newUser.save().then(user => {
+      res.redirect('/login');
+    }).catch(err => {
+      res.redirect('/register');
+    });
+  });
 });
 
 app.listen(port, () => {

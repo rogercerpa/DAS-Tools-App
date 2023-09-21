@@ -1,13 +1,35 @@
-import React from 'react'
-import Logo from "../../assets/logo.png"
-import { Fragment, useRef, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import React, { useState } from 'react';
+import Logo from "../../assets/logo.png";
+import { Fragment, useRef } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import axios from 'axios';
 
 function LogIn() {
+  const [open, setOpen] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const cancelButtonRef = useRef(null);
 
-  const [open, setOpen] = useState(true)
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const cancelButtonRef = useRef(null)
+    try {
+      const response = await axios.post('http://localhost:4000/login', {
+        username: email, // Assuming you're using email as the username
+        password
+      });
+
+      if (response.status === 200) {
+        // Login was successful, redirect or handle as you'd like
+        setOpen(false); // Close the login dialog for this example
+      } else {
+        // Handle login errors here
+        console.error('Login failed:', response.data);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
 
   return (
 
@@ -51,7 +73,7 @@ function LogIn() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
@@ -62,6 +84,8 @@ function LogIn() {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -85,6 +109,8 @@ function LogIn() {
                   name="password"
                   type="password"
                   autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
