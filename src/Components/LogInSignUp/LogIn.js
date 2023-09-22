@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.png";
 import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function LogIn() {
   const [open, setOpen] = useState(true);
@@ -98,9 +99,9 @@ function LogIn() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <Link href="/forgotPassword" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">
@@ -129,9 +130,9 @@ function LogIn() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              Reach out to your admin
-            </a>
+            <Link href="/SignUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              Sign Up Today!
+            </Link>
           </p>
         </div>
       </div>

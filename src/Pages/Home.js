@@ -15,7 +15,7 @@ const Home = () => {
       <main className="mb-auto">
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<LogIn />} />
+              <Route path="/login/*" element={<LogIn />} />
               <Route path="/Tools/*" element={<Tools />} />
               <Route path="/Dashboard/*" element={<Dashboard />} />
               <Route path="/Team/*" element={<Team />} />
