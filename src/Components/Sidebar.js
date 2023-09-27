@@ -15,8 +15,8 @@ import {
 } from '@heroicons/react/24/outline'
 
 const TeamFeatures = [
-  { name: 'Agencies', description: 'List of all agencies', href: 'Agencies', icon: UserGroupIcon },
   { name: 'Associate Profile', description: "DAS Member Profile", href: 'AssociateProfile', icon: UserIcon },
+  { name: 'Agencies', description: 'List of all agencies', href: 'Agencies', icon: UserGroupIcon },
   { name: 'Team News', description: "DAS general news", href: 'TeamNews', icon: NewspaperIcon },
   { name: 'Controls News', description: "What new in Acuity controls", href: 'ControlsNews', icon: Cog6ToothIcon },
 
