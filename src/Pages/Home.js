@@ -5,6 +5,7 @@ import LandingPage from './LandingPage';
 import Dashboard from "./Dashboard"
 import Team from "./Team"
 import LogIn from "../Components/LogInSignUp/LogIn"
+import SignUp from "../Components/LogInSignUp/SignUp"
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -16,6 +17,7 @@ const Home = () => {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/login/*" element={<LogIn />} />
+              <Route path="/Signup/*" element={<SignUp />} />
               <Route path="/Tools/*" element={<Tools />} />
               <Route path="/Dashboard/*" element={<Dashboard />} />
               <Route path="/Team/*" element={<Team />} />

@@ -99,7 +99,7 @@ function LogIn() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <Link href="/forgotPassword" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <Link to="/forgotPassword" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
                   </Link>
                 </div>
@@ -130,7 +130,7 @@ function LogIn() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
-            <Link href="/SignUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            <Link to="/SignUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Sign Up Today!
             </Link>
           </p>
