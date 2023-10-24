@@ -13,6 +13,7 @@ function Schedule({ events }) {
 
     // Navigate to the project page with the project ID
     navigate(`/project/${projectId}`);
+    console.log(projectId)
   };
   return (
     <FullCalendar
@@ -21,6 +22,7 @@ function Schedule({ events }) {
       weekends={false}
       events={events}
       eventClick={handleEventClick}
+      eventClassNames="cursor-pointer"
     />
   )
 }

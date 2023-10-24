@@ -16,8 +16,8 @@ const Dashboard = () => {
      
         <Routes>
           <Route path="/" element={<QueueStatus />} />
-          <Route path="ScheduleView" element={<ScheduleView />} />
-          <Route path="QueueStatus" element={<QueueStatus />} />
+          <Route path="ScheduleView/*" element={<ScheduleView />} />
+          <Route path="QueueStatus/*" element={<QueueStatus />} />
         </Routes>
       </div>
     </div>
