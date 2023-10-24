@@ -2,6 +2,8 @@
 import React from 'react';
 import Agencies from "../Features/TeamFeatures/Agencies"
 import AssociateProfile from "../Features/TeamFeatures/AssociateProfile"
+import TeamNews from "../Features/TeamFeatures/TeamNews"
+import ControlsNews from "../Features/TeamFeatures/ControlsNews"
 import Sidebar from "../Components/Sidebar"
 import { Route, Routes, useLocation } from 'react-router-dom';
 
@@ -32,6 +34,8 @@ const Team = () => {
           <Routes>
             <Route path="Agencies" element={<Agencies />} />
             <Route path="AssociateProfile" element={<AssociateProfile />} />
+            <Route path="TeamNews" element={<TeamNews />} />
+            <Route path="ControlsNews" element={<ControlsNews />} />
           </Routes>
         </div>
     </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import Schedule from "../../Components/Schedule/Schedule";
 import { useFetchData } from '../../api/fetchData';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import ProjectPage from "../../Components/ProjectPage"
 
 const ScheduleView = () => {
   const { data } = useFetchData();
@@ -23,6 +25,9 @@ const ScheduleView = () => {
     <div className="p-4">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">ScheduleView</h1>
       <Schedule events={events} />
+      <Routes>
+        <Route path="ProjectsPage" element={<ProjectPage />}></Route>
+      </Routes>
     </div>
   );
 };

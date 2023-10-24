@@ -12,7 +12,7 @@ function Schedule({ events }) {
     const projectId = eventInfo.event.id;
 
     // Navigate to the project page with the project ID
-    navigate(`/project/${projectId}`);
+    navigate(`/ProjectPage/${projectId}`);
     console.log(projectId)
   };
   return (
