@@ -1,9 +1,10 @@
-const { app, BrowserWindow,  Menu, MenuItem } = require('electron');
+const { app, BrowserWindow,  Menu, MenuItem,shell } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
+const childProcess = require('child_process');
 
-setupTitlebar();
+
 
 // IPC listener
 
@@ -37,6 +38,7 @@ ipcMain.on('create-folder-and-files', (event, arg) => {
     });
 
     event.reply('folder-files-response', { success: true });
+    shell.openPath(folderPath); // Use shell.openPath to open the folder
   });
 });
 
@@ -44,6 +46,9 @@ ipcMain.on('create-folder-and-files', (event, arg) => {
 //main Electron app Set-Up
 
 function createWindow() {
+
+  setupTitlebar();
+
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -56,7 +61,7 @@ function createWindow() {
       contextIsolation: true, 
       enableRemoteModule: false, 
       nodeIntegration: false, 
-      devTools: true,
+      devTools: false,
     },
   });
 

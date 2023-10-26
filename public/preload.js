@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron');
-const customTitlebar = require('custom-electron-titlebar');
+const customTitlebar = require('custom-electron-titlebar/main');
 const { remote } = require('electron');
 
 contextBridge.exposeInMainWorld(
